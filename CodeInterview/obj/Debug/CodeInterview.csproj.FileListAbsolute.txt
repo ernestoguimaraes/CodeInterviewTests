@@ -1,0 +1,13 @@
+C:\sc\CodeInterview\CodeInterview\bin\Debug\CodeInterview.exe.config
+C:\sc\CodeInterview\CodeInterview\bin\Debug\CodeInterview.exe
+C:\sc\CodeInterview\CodeInterview\bin\Debug\CodeInterview.pdb
+C:\sc\CodeInterview\CodeInterview\obj\Debug\CodeInterview.csproj.CoreCompileInputs.cache
+C:\sc\CodeInterview\CodeInterview\obj\Debug\CodeInterview.exe
+C:\sc\CodeInterview\CodeInterview\obj\Debug\CodeInterview.pdb
+C:\sc\CodeInterview\CodeInterview\obj\Debug\CodeInterview.csprojAssemblyReference.cache
+C:\sc\CodeInterviewTests\CodeInterview\bin\Debug\CodeInterview.exe.config
+C:\sc\CodeInterviewTests\CodeInterview\bin\Debug\CodeInterview.exe
+C:\sc\CodeInterviewTests\CodeInterview\bin\Debug\CodeInterview.pdb
+C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.csproj.CoreCompileInputs.cache
+C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.exe
+C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.pdb
