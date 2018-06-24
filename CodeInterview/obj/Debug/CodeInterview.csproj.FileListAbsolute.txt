@@ -11,3 +11,4 @@ C:\sc\CodeInterviewTests\CodeInterview\bin\Debug\CodeInterview.pdb
 C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.csproj.CoreCompileInputs.cache
 C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.exe
 C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.pdb
+C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.csprojAssemblyReference.cache
