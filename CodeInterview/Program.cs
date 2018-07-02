@@ -7,9 +7,14 @@ namespace CodeInterview
     {
         static void Main(string[] args)
         {
+          
 
             Program o = new Program();
 
+            //SOLVE BLOCKS
+            //o.RunBlocks();
+
+            
             //SOLVE SUDOKU
             //o.Sudoku();
 
@@ -17,11 +22,9 @@ namespace CodeInterview
             //SOLVE RAT IN RACE
             //o.RatInARace();
 
-            //SOLVE BLOCKS
-            //o.RunBlocks();
-
+           
             //BTS - Binary Tree Search
-            //o.BTS();
+            o.BTS();
 
 
             Console.ReadKey();
@@ -30,20 +33,26 @@ namespace CodeInterview
 
         private void BTS()
         {
-            var BTS = new  CodeInterview.bts.tree();
-            Random rnd = new Random();
-            rnd.Next(100);
-
+            var BTS = new  bts.tree();
+            
+            //Generataing random values for tree
+            var rnd = new Random();
+            
             for (int i = 0; i < 99; i++)
             {
+                //Explore this method to understand how to add values to a Binary Tree 
                 BTS.AddValue(rnd.Next(100));
             }
 
+            //This methode shows how to search for a value
             BTS.Search(BTS.ReturnRoot(), 7);
+
+            //This one tranverse a tree
             BTS.Transverse(BTS.ReturnRoot());
         }
         private void Sudoku()
         {
+            Console.WriteLine("Using Backtracking algorith to solve SODOKU. See reference on Source Code");
 
             var grid = new int[,]{{3, 0, 6, 5, 0, 8, 4, 0, 0},
                                   {5, 2, 0, 0, 0, 0, 0, 0, 0},
@@ -63,6 +72,7 @@ namespace CodeInterview
 
         private void RatInARace()
         {
+            Console.WriteLine("Using Backtracking algorith to solve a RAT Race. See reference on Source Code");
             //1 are the valid Paths
             var grid = new int[,]{{ 1, 0, 0, 0 },
                                   { 1, 1, 1, 0},
@@ -75,6 +85,8 @@ namespace CodeInterview
 
         private void RunBlocks()
         {
+            Console.WriteLine("Running Blocks. See the reference on Source Code");
+
             int[] vetor = { 1, 2, 2, 2, 2, 3, 3, 3, 1 };
             Blocks.BlocksChallenge.Run(vetor);
         }

@@ -52,7 +52,6 @@ namespace CodeInterview.Classics
 
         private static bool UsedInBox(int[,] matrix, int boxStartRow, int boxStartCol, int num)
         {
-            Console.WriteLine(boxStartRow + " " + boxStartCol);
           
 
             for (int row = 0; row < 3; row++)

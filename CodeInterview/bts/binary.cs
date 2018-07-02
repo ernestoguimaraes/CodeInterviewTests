@@ -19,7 +19,7 @@ namespace CodeInterview.bts
 
     public class tree
     {
-        Node root, current;
+        Node root;
 
         public tree()
         {

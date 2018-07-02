@@ -19,21 +19,26 @@ namespace CodeInterview.Blocks
             return other != null &&
                    EqualityComparer<List<int>>.Default.Equals(numbers, other.numbers);
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
     /// <summary>
-    /// Try to solve the Blocks Challenge
+    /// Solving the code challenging
     /// reference: https://www.urionlinejudge.com.br/judge/en/problems/view/1331
     /// </summary>
     /// 
     public static class BlocksChallenge
     {
 
-        public static void Run (int[] vetor)
+        public static void Run(int[] vetor)
         {
             var Listasegmento = CalculateSegements(vetor);
             var total = Solve(Listasegmento, 0);
-            Console.WriteLine("Total Points:" + total);            
+            Console.WriteLine("Total Points:" + total);
         }
 
         static int Solve(List<Segments> Listasegmento, int points)
@@ -47,42 +52,21 @@ namespace CodeInterview.Blocks
 
             //Look for the largest segement
             var LargestSegement = Listasegmento.OrderByDescending(a => a.numbers.Count).First();
+            var LargestSegementIndex = Listasegmento.FindIndex(a => a.numbers == LargestSegement.numbers);
 
-            //Check if the 2nd Segement from the current one is the same value. If yes, remove the 
-            //next segment and run again
-            var CurrentSegmentOfLargestSegment = Listasegmento.FindIndex(a => a.numbers == LargestSegement.numbers);
+            var RemoveNextSegment = ShouldRemoveThenNextSegement(Listasegmento, LargestSegementIndex, LargestSegement);
 
-            //Avoid any problems with the array Lenght
-            if (CurrentSegmentOfLargestSegment + 2 < Listasegmento.Count)
-            {
-                //If yes, remove the CurrentSegment+1. Check if the next 2 segement is equal to the current 
-                if (Listasegmento[CurrentSegmentOfLargestSegment + 2].numbers.Contains(LargestSegement.numbers[0]))
-                {
-                    var segmentToRemove = Listasegmento[CurrentSegmentOfLargestSegment + 1];
-                    points += CalculatePoints(segmentToRemove);
-                    Listasegmento.Remove(segmentToRemove);
-                    var newListSeg = CalculateSegements(ConvertListToArray(Listasegmento));
-                    return Solve(newListSeg, points);
-                }
-                else//If no, remove the Largest on
-                {
-                    var segmentToRemove = Listasegmento[CurrentSegmentOfLargestSegment];
-                    points += CalculatePoints(segmentToRemove);
-                    Listasegmento.Remove(segmentToRemove);
-                    var newListSeg = CalculateSegements(ConvertListToArray(Listasegmento));
-                    return Solve(newListSeg, points);
-                }
+            Segments segmentToRemove;
+            if (RemoveNextSegment)
+                segmentToRemove = Listasegmento[LargestSegementIndex + 1];
+            else
+                segmentToRemove = Listasegmento[LargestSegementIndex];
 
-            }
-            else //remove the largest
-            {
-                var segmentToRemove = Listasegmento[CurrentSegmentOfLargestSegment];
-                points += CalculatePoints(segmentToRemove);
-                Listasegmento.Remove(segmentToRemove);
-                var newListSeg = CalculateSegements(ConvertListToArray(Listasegmento));
-                return Solve(newListSeg, points);
-            }
 
+            points += CalculatePoints(segmentToRemove);
+            Listasegmento.Remove(segmentToRemove);
+            var newListSeg = CalculateSegements(ConvertListToArray(Listasegmento));
+            return Solve(newListSeg, points);
         }
 
         static int[] ConvertListToArray(List<Segments> list)
@@ -96,9 +80,15 @@ namespace CodeInterview.Blocks
             return arrayLst.ToArray();
         }
 
+        /// <summary>
+        /// Always calculates the new segments.
+        /// </summary>
+        /// <param name="vetor"></param>
+        /// <returns></returns>
         static List<Segments> CalculateSegements(int[] vetor)
         {
             var Listasegmento = new List<Segments>();
+
 
             for (int i = 0; i < vetor.Length; i++)
             {
@@ -145,5 +135,28 @@ namespace CodeInterview.Blocks
             return segment.numbers.Count * segment.numbers.Count;
         }
 
+        /// <summary>
+        /// Verifies if the next segment should be removed because maybe the next one has equal values from the current, so, removing the next one can create a bigger segment.
+        /// </summary>
+        /// <param name=""></param>
+        /// <param name="LargeSegmentIndex"></param>
+        /// <returns></returns>
+        static bool ShouldRemoveThenNextSegement(List<Segments> list, int LargeSegmentIndex, Segments LargerSegment)
+        {
+            //Avoid the out of Bounds
+            if (LargeSegmentIndex + 2 < list.Count)
+            {
+                //If yes, remove the CurrentSegment+1. Check if the next 2 segement is equal to the current 
+                if (list[LargeSegmentIndex + 2].numbers.Contains(LargerSegment.numbers[0]))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
