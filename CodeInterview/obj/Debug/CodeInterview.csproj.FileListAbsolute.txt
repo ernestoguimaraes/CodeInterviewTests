@@ -12,3 +12,5 @@ C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.csproj.CoreCompil
 C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.exe
 C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.pdb
 C:\sc\CodeInterviewTests\CodeInterview\obj\Debug\CodeInterview.csprojAssemblyReference.cache
+C:\sc\CodeInterviewTests\CodeInterview\bin\Debug\CodeInterview.exe.CodeAnalysisLog.xml
+C:\sc\CodeInterviewTests\CodeInterview\bin\Debug\CodeInterview.exe.lastcodeanalysissucceeded

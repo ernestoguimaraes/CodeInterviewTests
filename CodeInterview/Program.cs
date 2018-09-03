@@ -1,20 +1,25 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 namespace CodeInterview
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-          
+
 
             Program o = new Program();
+
+            //SUPER REDUCE STRING
+            o.SuperReduceString();
 
             //SOLVE BLOCKS
             //o.RunBlocks();
 
-            
+
             //SOLVE SUDOKU
             //o.Sudoku();
 
@@ -22,22 +27,30 @@ namespace CodeInterview
             //SOLVE RAT IN RACE
             //o.RatInARace();
 
-           
+
             //BTS - Binary Tree Search
-            o.BTS();
+          //  o.BTS();
 
 
             Console.ReadKey();
 
         }
 
+        private void SuperReduceString()
+        {
+            var superString = new HackerRank.SuperReducedString();
+            string s = "baab";
+            var result = superString.ShortString(s);
+            Console.WriteLine(result);
+        }
+
         private void BTS()
         {
-            var BTS = new  bts.tree();
-            
+            var BTS = new bts.tree();
+
             //Generataing random values for tree
             var rnd = new Random();
-            
+
             for (int i = 0; i < 99; i++)
             {
                 //Explore this method to understand how to add values to a Binary Tree 
