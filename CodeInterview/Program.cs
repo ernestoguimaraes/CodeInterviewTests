@@ -9,12 +9,26 @@ namespace CodeInterview
 
         static void Main(string[] args)
         {
+            string s = "saveChangesInTheEditor";
+            var words = 1;
+            for (int i=0; i < s.Length;i++)
+            {
+
+                if (s[i].ToString().Equals(s[i].ToString().ToUpper()))
+                {
+                    words += 1;
+                }
+
+            }
+
+            Console.WriteLine(words);
+
 
 
             Program o = new Program();
 
             //SUPER REDUCE STRING
-            o.SuperReduceString();
+          //  o.SuperReduceString();
 
             //SOLVE BLOCKS
             //o.RunBlocks();
